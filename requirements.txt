@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+jinja2
+python-multipart
+streamlit
+sentence-transformers
+pandas
+# sqlite3 is standard library

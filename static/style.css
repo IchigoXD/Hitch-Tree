@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #0e1117;
+    --text-color: #fafafa;
+    --secondary-text-color: #bdc2cb;
+    --card-bg: hsla(234, 12%, 17%, 0.7);
+    /* More transparent for glass effect */
+    --primary-color: #22c55e;
+    /* Green theme */
+    --primary-hover: #16a34a;
+    --input-bg: rgba(14, 17, 23, 0.6);
+    --input-border: rgba(65, 67, 74, 0.5);
+    --link-color: #22c55e;
+    --alert-blue-bg: rgba(28, 46, 69, 0.6);
+    --alert-blue-border: #3b82f6;
+    --alert-green-bg: rgba(24, 51, 37, 0.6);
+    --alert-green-border: #22c55e;
+    --hover-bg: rgba(31, 32, 38, 0.6);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centering for Index, overridden for Roadmap if needed */
+    min-height: 100vh;
+    background-image: url("university.jpg");
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
+    background-size: cover;
+    /* Scales the image to cover the entire container */
+    background-position: center;
+}
+
+/* Utilities */
+.container {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Roadmap Specific Adjustments */
+body.roadmap-page {
+    align-items: flex-start;
+    /* Roadmap isn't vertically centered */
+    padding-top: 4rem;
+}
+
+.roadmap-page .container {
+    max-width: 730px;
+}
+
+/* Index Specific Adjustments */
+body.index-page .container {
+    max-width: 480px;
+}
+
+/* Card Styling (Index) */
+.card {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Typography */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.roadmap-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.index-page h1 {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Forms (Index) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #ececec;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.example-text {
+    font-size: 0.8rem;
+    color: var(--secondary-text-color);
+    font-style: italic;
+    margin-top: -0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.bottom-text {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button {
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #16a34a 100%);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Alerts and Roadmap Elements */
+.header-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.header-logo svg {
+    fill: #ff4b4b;
+}
+
+.alert-box {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.alert-blue {
+    background-color: var(--alert-blue-bg);
+    border: 1px solid transparent;
+}
+
+.alert-green {
+    background-color: var(--alert-green-bg);
+}
+
+.alert-box a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.alert-box a:hover {
+    border-bottom: 1px solid var(--link-color);
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+.expandable {
+    background-color: transparent;
+    border: 1px solid #31333f;
+    border-radius: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.expandable-summary {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+.expandable-summary:hover {
+    color: #ff4b4b;
+}
+
+.quarter-section {
+    margin-top: 3rem;
+}
+
+.quarter-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.roadmap-item {
+    margin-bottom: 2rem;
+}
+
+.item-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.badge {
+    background-color: #183325;
+    color: #22c55e;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: normal;
+    border: 1px solid #1a4d2e;
+}
+
+.item-description {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+    margin-left: 1.7rem;
+}
+
+/* Success Messages (Index) */
+.success-message {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.success-text {
+    color: #22c55e;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--primary-color);
+}
+
+.heart {
+    color: var(--primary-color);
+    display: inline-block;
+    animation: beat 2s infinite ease-in-out;
+}
+
+
+.agreement-container {
+    /* Adds spacing around the agreement section */
+    margin-bottom: 15px;
+    /* Aligns the checkbox and the text nicely */
+    display: flex;
+    align-items: center;
+}
+
+.agreement-container input[type="checkbox"] {
+    /* Adds some space between the checkbox and the text */
+    margin-right: 10px;
+    /* Adjusts the size of the checkbox if needed */
+    width: 16px;
+    height: 16px;
+    /* Keeps the default system checkbox appearance */
+    cursor: pointer;
+}
+
+.agreement-container label {
+    /* Makes the entire label area a clickable cursor icon */
+    cursor: pointer;
+    /* Ensures the text wraps correctly and stays aligned */
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.agreement-container a {
+    /* Styles the links to stand out from the rest of the text */
+    color: #007bff;
+    text-decoration: none;
+}
+
+.agreement-container a:hover {
+    text-decoration: underline;
+}
+
+button[type="submit"] {
+    /* Base styling for the submit button already handled above */
+    width: 100%;
+}
+
+
+
+
+@keyframes beat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.1);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+}

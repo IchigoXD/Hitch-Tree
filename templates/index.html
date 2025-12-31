@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Matchmaking</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="index-page">
+    <div class="container">
+        <div class="card">
+            <h1><span class="heart">💚</span> Hitch Tree <span class="heart">💚</span> </h1>
+
+            {% if processed %}
+            <div class="success-message">
+                <span class="success-icon">✨</span>
+                <div class="success-text">Profile Submitted!</div>
+                <p class="subtitle">We'll let you know if we find a match.</p>
+                <a href="/" class="back-link">Submit another profile</a>
+            </div>
+            {% else %}
+            <p class="subtitle">Find your soulmate in University of Peradeniya </br>with little help of AI.</p>
+            <form action="/submit" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="E.g. Dhananjaya Kalhara" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="student_number">Student Number</label>
+                    <input type="text" id="student_number" name="student_number" placeholder="E.g. S23574" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group flex-1">
+                        <label for="gender">I am a</label>
+                        <select id="gender" name="gender" required>
+                            <option value="" disabled selected style="color: gray;">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group flex-1">
+                        <label for="interested_in">I am looking for a</label>
+                        <select id="interested_in" name="interested_in" required>
+                            <option value="" disabled selected>Select Preference</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="E.g. +94771234567" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="looking_for">Looking For</label>
+                    <p class="example-text">Example: Someone who likes long walks, short, and love to drink milk.</p>
+                    <textarea id="looking_for" name="looking_for" maxlength="150"
+                        placeholder="Describe your ideal match..." required></textarea>
+                    <p class="example-text">more words = better results</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="about_me">About Me</label>
+                    <p class="example-text">Example: Kind-hearted Science student who enjoys deep conversations,
+                        late-night coding, and indie music.</p>
+                    <textarea id="about_me" name="about_me" maxlength="150"
+                        placeholder="Tell us a bit about yourself..." required></textarea>
+                    <p class="example-text" style="margin-top: 0rem;">more words = better results</p>
+                </div>
+
+                <div class="agreement-container">
+                    <input type="checkbox" id="agreement" name="agreement" required>
+                    <label for="agreement">I agree that my information will be used only for matchmaking within the
+                        university and will not be shared publicly.</label>
+                </div>
+
+                <button type="submit">Find My Match</button>
+            </form>
+            <p class="example-text bottom-text">Matches will be sent to you privately via WhatsApp.</p>
+            {% endif %}
+        </div>
+        <footer>
+            <p class="subtitle" style="margin-top: 0.2rem;">You are open more than usual to contribute.</br> 🛠️ Ichi 🖼️ Chamod </p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
